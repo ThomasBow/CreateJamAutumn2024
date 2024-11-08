@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://jmyqjw5sh5me"]
+[gd_scene load_steps=4 format=3 uid="uid://jmyqjw5sh5me"]
 
-[ext_resource type="Texture2D" uid="uid://e4qpv45nqr7k" path="res://grass.png" id="1_oajc7"]
+[ext_resource type="Texture2D" uid="uid://co2kwhqjttmrk" path="res://images/floorTemp.jpg" id="1_ik1q8"]
 [ext_resource type="PackedScene" uid="uid://dbyw0lvkd5uen" path="res://scenes/player.tscn" id="2_we03t"]
+
+[sub_resource type="TileSet" id="TileSet_vrwqi"]
+tile_size = Vector2i(90, 90)
 
 [node name="Game" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1281.0
-offset_bottom = 720.0
-texture = ExtResource("1_oajc7")
+offset_right = 803.0
+offset_bottom = 804.0
+texture = ExtResource("1_ik1q8")
 
 [node name="Player" parent="." instance=ExtResource("2_we03t")]
 position = Vector2(98, 59)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_vrwqi")
+format = 2
