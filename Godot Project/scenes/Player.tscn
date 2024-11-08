@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://daknqmja37w1k" path="res://sprites/ghost.png" id="1_81erl"]
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_5s174")
+speed = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(449.5, 348.5)

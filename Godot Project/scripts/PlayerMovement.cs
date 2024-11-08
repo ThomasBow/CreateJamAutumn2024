@@ -13,13 +13,13 @@ public partial class PlayerMovement : CharacterBody2D
 		// Get direction
 		Vector2 directionVector = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		// Calculate movement vector
-		Velocity += directionVector * speed;
+		Velocity = directionVector * speed;
 	}
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
-		CalculateMovement();
-		MoveAndSlide(); //This function uses delta itself
+		CalculateMovement();//This function uses delta itself
+		MoveAndSlide();
 	}
 }
