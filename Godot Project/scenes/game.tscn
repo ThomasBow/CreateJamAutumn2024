@@ -16,6 +16,8 @@ texture = ExtResource("1_ik1q8")
 [node name="Player" parent="." instance=ExtResource("2_we03t")]
 position = Vector2(98, 59)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TileMap" type="Node2D" parent="."]
+
+[node name="Layer0" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
 tile_set = SubResource("TileSet_vrwqi")
-format = 2
