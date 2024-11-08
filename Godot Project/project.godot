@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Create Jam Autumn 2024"
-run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+run/main_scene="res://scenes/Game.tscn"
+config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://images/icon.svg"
 
 [display]
