@@ -13,6 +13,7 @@ var lastDirection: Direction = Direction.LEFT
 
 var newestNeighboringCells: Array = []
 
+var newestHighlightedTileCoords: Vector2i = Vector2i(-10000, -10000)
 
 
 
@@ -24,7 +25,19 @@ func _ready() -> void:
 
 
 
+func GetGlobalPositio() -> Vector2:
+	var position = global_position
+	position.x -= 5
+	position.y += 8
+	return position
+
+
+
+
 func get_tile_map_layers() -> void:
+	if tile_map_layer_parent_node == null:
+		return
+	
 	tile_map_layers = []
 	for child in tile_map_layer_parent_node.get_children():
 		if child is TileMapLayer:
@@ -35,7 +48,7 @@ func get_tile_map_layers() -> void:
 
 # Function to get the tile(s) the player is currently standing on
 func get_current_tiles_from_position() -> Array:
-	var playerPosition = global_position
+	var playerPosition = GetGlobalPositio()
 	var tileDatas = []
 	var layers_i = tile_map_layers.size() - 1
 	for tile_map_layer_i in range(layers_i, -1, -1):
@@ -102,9 +115,9 @@ func SetDirection(directionVector: Vector2):
 		lastDirection = Direction.RIGHT
 	elif directionVector.x < 0:
 		lastDirection = Direction.LEFT
-	elif directionVector.y > 0:
+	elif directionVector.y < 0:
 		lastDirection = Direction.UP
-	else:
+	elif directionVector.y > 0:
 		lastDirection = Direction.DOWN
 
 
@@ -112,7 +125,6 @@ func SetDirection(directionVector: Vector2):
 
 func GetLayerWithName(layerName: String) -> TileMapLayer:
 	for layer in tile_map_layers:
-		print(layer.name)
 		if layer.name == layerName:
 			return layer 
 	return null
@@ -127,12 +139,6 @@ func _physics_process(delta: float) -> void:
 	
 	HighlightNeibhoringCellInWalkingDirection()
 	GetNeighboringCellsInWalkingDirection()
-	
-	var tileDatas = get_current_tiles_from_position()
-	print("----------------")
-	if tileDatas.size() > 0:
-		for tileData in tileDatas:
-			print(tileData.to_string())
 
 
 
@@ -141,7 +147,7 @@ func _physics_process(delta: float) -> void:
 func GetNeighboringCellsInWalkingDirection() -> Array:
 	var neighboringCells: Array = []
 	for layer in tile_map_layers:
-		var cell: TileData = GetNeighboringCellInWalkingDirection(global_position, layer, lastDirection)
+		var cell: TileData = GetNeighboringCellInWalkingDirection(GetGlobalPositio(), layer, lastDirection)
 		neighboringCells.append(cell)
 	
 	newestNeighboringCells = neighboringCells
@@ -151,8 +157,11 @@ func GetNeighboringCellsInWalkingDirection() -> Array:
 
 
 func HighlightNeibhoringCellInWalkingDirection() -> void:
-	var higlightingLayer: TileMapLayer = GetLayerWithName("HighlightLayer")
-	var tileCoords = higlightingLayer.local_to_map(global_position)
+	var highlightingLayer: TileMapLayer = GetLayerWithName("HighlightLayer")
+	if highlightingLayer == null:
+		return
+	
+	var tileCoords = highlightingLayer.local_to_map(GetGlobalPositio())
 	var neighbor_coords = tileCoords
 	
 	# Adjust the coordinates based on direction
@@ -166,8 +175,11 @@ func HighlightNeibhoringCellInWalkingDirection() -> void:
 		Direction.RIGHT:
 			neighbor_coords.x += 1  # Move right in the grid
 
-	var sourceId: int = 0
-	var atlasCoords: Vector2i = Vector2i(0,0)
-
-	higlightingLayer.set_cell(neighbor_coords, sourceId, atlasCoords)
+	if neighbor_coords != newestHighlightedTileCoords:
+		highlightingLayer.clear()
+		
+		var sourceId: int = 0
+		var atlasCoords: Vector2i = Vector2i(0,0)
+		
+		highlightingLayer.set_cell(neighbor_coords, sourceId, atlasCoords)
 	
