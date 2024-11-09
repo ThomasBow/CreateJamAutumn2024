@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=18 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d3hsrrlgjwijb" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
 [ext_resource type="Texture2D" uid="uid://cw8ktebb5337u" path="res://images/table.png" id="5_iikqb"]
 [ext_resource type="Script" path="res://scripts/Table.gd" id="6_5cx8w"]
-[ext_resource type="PackedScene" path="res://scenes/SecondPlayer.tscn" id="7_4qwg5"]
+[ext_resource type="PackedScene" uid="uid://cdki4cy4agk4v" path="res://scenes/SecondPlayer.tscn" id="7_4qwg5"]
 [ext_resource type="Texture2D" uid="uid://c5xipexx0t7q" path="res://images/chair.png" id="7_d36ax"]
 [ext_resource type="Script" path="res://scripts/SpritesSpawn.gd" id="8_5ccpk"]
 [ext_resource type="Script" path="res://scripts/appliance.gd" id="10_mptmv"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cnecx2fy374xt" path="res://images/counter.png" id="14_mtbib"]
 [ext_resource type="Texture2D" uid="uid://du7rlji0x2m4y" path="res://images/freezer.png" id="15_qhr4j"]
 [ext_resource type="Script" path="res://scripts/freezer.gd" id="16_yemom"]
+[ext_resource type="AudioStream" uid="uid://bogwg8js8ptbn" path="res://music/Create Game Jam halloween loop.wav" id="15_bajco"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
@@ -164,3 +165,7 @@ cooking_type = 3
 position = Vector2(206, 18)
 texture = ExtResource("15_qhr4j")
 script = ExtResource("16_yemom")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_bajco")
+volume_db = -23.464
+autoplay = true
