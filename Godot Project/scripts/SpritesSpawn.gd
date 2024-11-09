@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var top: Node2D  # Export individual nodes for each spawn point (not used for spawning chairs)
-@export var bottom: Node2D  # Export individual nodes for each spawn point (not used for spawning chairs)
 @export var left: Node2D  # Position of the left chair
 @export var right: Node2D  # Position of the right chair
 
@@ -9,7 +7,7 @@ extends Node2D
 @export var customer_scene: PackedScene  # The customer sprite to spawn
 
 func _ready():
-	# This will spawn customers and place them at left or right
+	# Spawn customers at the left and right chair positions
 	spawn_customers()
 
 func spawn_customers():
@@ -25,7 +23,7 @@ func spawn_customers():
 		else:
 			continue
 		
-		# Spawn the customer sprite off-screen or at (-1, 1) initially
+		# Spawn the customer sprite off-screen (e.g., at position (-1, 1))
 		var customer = customer_scene.instantiate()
 		customer.position = Vector2(-1, 1)  # Starting position off-screen
 

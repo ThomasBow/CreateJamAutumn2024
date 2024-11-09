@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=10 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
@@ -6,7 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://d3hsrrlgjwijb" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
 [ext_resource type="Texture2D" uid="uid://cw8ktebb5337u" path="res://images/table.png" id="5_iikqb"]
 [ext_resource type="Script" path="res://scripts/Table.gd" id="6_5cx8w"]
-[ext_resource type="PackedScene" uid="uid://cdki4cy4agk4v" path="res://scenes/SecondPlayer.tscn" id="7_4qwg5"]
+[ext_resource type="PackedScene" path="res://scenes/SecondPlayer.tscn" id="7_4qwg5"]
+[ext_resource type="Texture2D" uid="uid://c5xipexx0t7q" path="res://images/chair.png" id="7_d36ax"]
+[ext_resource type="Script" path="res://scripts/SpritesSpawn.gd" id="8_5ccpk"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
@@ -30,25 +32,69 @@ position = Vector2(152, 68)
 speed = 80
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
 
-[node name="Table" type="Sprite2D" parent="."]
-position = Vector2(30, -12)
+[node name="Table1" type="Sprite2D" parent="."]
+position = Vector2(30, -14)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
+
+[node name="ChairLeft" type="Sprite2D" parent="Table1"]
+position = Vector2(-16, 0)
+texture = ExtResource("7_d36ax")
+script = ExtResource("8_5ccpk")
+
+[node name="ChairRight" type="Sprite2D" parent="Table1"]
+position = Vector2(16, 0)
+texture = ExtResource("7_d36ax")
+flip_h = true
+script = ExtResource("8_5ccpk")
 
 [node name="Table2" type="Sprite2D" parent="."]
-position = Vector2(94, -12)
+position = Vector2(94, -14)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
+
+[node name="ChairLeft" type="Sprite2D" parent="Table2"]
+position = Vector2(-16, 0)
+texture = ExtResource("7_d36ax")
+script = ExtResource("8_5ccpk")
+
+[node name="ChairRight" type="Sprite2D" parent="Table2"]
+position = Vector2(16, 0)
+texture = ExtResource("7_d36ax")
+flip_h = true
+script = ExtResource("8_5ccpk")
 
 [node name="Table3" type="Sprite2D" parent="."]
-position = Vector2(30, 68)
+position = Vector2(30, 66)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
 
+[node name="ChairLeft" type="Sprite2D" parent="Table3"]
+position = Vector2(-16, 0)
+texture = ExtResource("7_d36ax")
+script = ExtResource("8_5ccpk")
+
+[node name="ChairRight" type="Sprite2D" parent="Table3"]
+position = Vector2(16, 0)
+texture = ExtResource("7_d36ax")
+flip_h = true
+script = ExtResource("8_5ccpk")
+
 [node name="Table4" type="Sprite2D" parent="."]
-position = Vector2(94, 68)
+position = Vector2(94, 66)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
+
+[node name="ChairLeft" type="Sprite2D" parent="Table4"]
+position = Vector2(-16, 0)
+texture = ExtResource("7_d36ax")
+script = ExtResource("8_5ccpk")
+
+[node name="ChairRight" type="Sprite2D" parent="Table4"]
+position = Vector2(16, 0)
+texture = ExtResource("7_d36ax")
+flip_h = true
+script = ExtResource("8_5ccpk")
 
 [node name="SecondPlayer" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("7_4qwg5")]
 position = Vector2(78, 21)
