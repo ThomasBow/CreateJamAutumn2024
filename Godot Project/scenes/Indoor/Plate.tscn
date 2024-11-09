@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://da1yahngksnnx"]
+
+[ext_resource type="Texture2D" uid="uid://bwgbh5ah7p1od" path="res://images/plate.png" id="1_drakv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38n30"]
+size = Vector2(14, 10)
+
+[node name="Plate" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_drakv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_38n30")

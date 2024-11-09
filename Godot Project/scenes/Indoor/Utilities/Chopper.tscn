@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c44nksploio7s"]
+
+[ext_resource type="Texture2D" uid="uid://civy6p32p65o" path="res://images/chopper.png" id="1_i7shb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_38n30"]
+size = Vector2(16, 16)
+
+[node name="Chopper" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_i7shb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_38n30")
