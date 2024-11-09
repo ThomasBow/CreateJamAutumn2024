@@ -20,12 +20,13 @@ func get_tile_map_layers() -> void:
 			tile_map_layers.append(child)
 
 # Function to get the tile(s) the player is currently standing on
-func get_current_tiles_from_position()
+func get_current_tiles_from_position() -> TileData:
 	var player_position = global_position
-	var layers_i = tile_map_layers.count() - 1
+	var layers_i = tile_map_layers.count(TileMapLayer) - 1
 	for tile_map_layer_i in range(layers_i, 0, -1):
 		var tile_map_layer = tile_map_layers[tile_map_layer_i]
-		
+		return get_current_tile_from_layer(tile_map_layer)
+	return null
 
 # Function to get the tile from the given layer
 func get_current_tile_from_layer(layer: TileMapLayer) -> TileData:
@@ -50,4 +51,7 @@ func calculate_movement() -> void:
 func _physics_process(delta: float) -> void:
 	calculate_movement() # This function uses delta itself
 	move_and_slide()
-	print(get_current_tile().terrain)
+	var tileData = get_current_tiles_from_position()
+	if tileData != null:
+		var terrain_s = String.num_int64(tileData.terrain)
+		print(terrain_s)
