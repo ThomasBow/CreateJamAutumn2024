@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://du7rlji0x2m4y" path="res://images/freezer.png" id="8_nlunc"]
 [ext_resource type="Texture2D" uid="uid://bjvduonv71mcj" path="res://images/Fryer.png" id="9_56v40"]
 [ext_resource type="Texture2D" uid="uid://bgwlgc43jyn1s" path="res://images/highlight sheet.png" id="9_cultv"]
-[ext_resource type="Texture2D" uid="uid://b6mjhhowwct8p" path="res://images/highlight 2.png" id="11_dra2p"]
+[ext_resource type="Texture2D" uid="uid://bixtm8whtksul" path="res://images/highlight 2.png" id="11_dra2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oym6a"]
 texture = ExtResource("2_qy7o0")
