@@ -7,14 +7,14 @@
 [node name="Game" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -470.0
-offset_top = -263.0
-offset_right = 811.0
-offset_bottom = 457.0
+offset_left = -471.0
+offset_top = -264.0
+offset_right = 810.0
+offset_bottom = 456.0
 texture = ExtResource("1_agcnu")
 
 [node name="TilemapLayer" parent="." instance=ExtResource("3_rafy7")]
-position = Vector2(1, -6)
+position = Vector2(6, -6)
 
 [node name="Camera2D" type="Camera2D" parent="TilemapLayer"]
 position = Vector2(119, 31)
@@ -22,4 +22,5 @@ zoom = Vector2(4.235, 4.235)
 
 [node name="Player" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("2_4xm4e")]
 position = Vector2(152, 68)
+speed = 80
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
