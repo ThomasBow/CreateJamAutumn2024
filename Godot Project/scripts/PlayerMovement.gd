@@ -4,7 +4,7 @@ class_name PlayerMovement
 
 @export var speed: int = 300
 @export var tile_map_layer_parent_node: Node2D
-
+@export var buttons: Array = ["ui_left", "ui_right", "ui_up", "ui_down", "enter", "backspace"] 
 var tile_map_layers: Array = []
 var _animated_sprite_2d: AnimatedSprite2D
 
@@ -94,7 +94,7 @@ func GetNeighboringCellInWalkingDirection(player_position: Vector2, layer: TileM
 
 func calculate_movement() -> void:
 	# Get direction
-	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction_vector: Vector2 = Input.get_vector(buttons[0], buttons[1], buttons[2], buttons[3])
 	
 	SetDirection(direction_vector)
 	
