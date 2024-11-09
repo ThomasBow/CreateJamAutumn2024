@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://bqfcmatsy614r"]
+[gd_scene load_steps=21 format=4 uid="uid://bqfcmatsy614r"]
 
 [ext_resource type="Texture2D" uid="uid://c5xipexx0t7q" path="res://images/chair.png" id="2_q4sq1"]
 [ext_resource type="Texture2D" uid="uid://tpf2ditld3fg" path="res://images/tilemapFixedV3.png" id="2_qy7o0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkn1krg0cb4ch" path="res://images/sink.png" id="6_8xs6r"]
 [ext_resource type="Texture2D" uid="uid://cw8ktebb5337u" path="res://images/table.png" id="7_1swct"]
 [ext_resource type="Texture2D" uid="uid://du7rlji0x2m4y" path="res://images/freezer.png" id="8_nlunc"]
+[ext_resource type="Texture2D" uid="uid://bjvduonv71mcj" path="res://images/Fryer.png" id="9_56v40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oym6a"]
 texture = ExtResource("2_qy7o0")
@@ -492,6 +493,11 @@ texture = ExtResource("8_nlunc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aqyb1"]
+texture = ExtResource("9_56v40")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
 [sub_resource type="TileSet" id="TileSet_kohy7"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xc7wl")
@@ -501,6 +507,7 @@ sources/3 = SubResource("TileSetAtlasSource_u65w4")
 sources/4 = SubResource("TileSetAtlasSource_in12i")
 sources/5 = SubResource("TileSetAtlasSource_dkmou")
 sources/6 = SubResource("TileSetAtlasSource_v2o8b")
+sources/7 = SubResource("TileSetAtlasSource_aqyb1")
 
 [node name="TilemapLayer" type="Node2D"]
 
@@ -509,7 +516,7 @@ tile_map_data = PackedByteArray("AAAOAAUAAQADAAMAAAAOAAQAAQADAAIAAAAOAAMAAQADAAI
 tile_set = SubResource("TileSet_oan01")
 
 [node name="UtilitiesLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAP7/AQAAAAAAAAAMAP7/AgAAAAAAAAANAP7/BAAAAAAAAAAMAAEABgAAAAAAAAAJAAAAAwAAAAAAAAAJAP//AwAAAAAAAAAJAP7/AwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAP7/AwAAAAAAAAAFAP//BQAAAAAAAAABAP//BQAAAAAAAAABAAQABQAAAAAAAAAFAAQABQAAAAAAAAAAAAQAAAAAAAAAAAAAAP//AAAAAAAAAAAEAP//AAAAAAAAAAAEAAQAAAAAAAAAAAACAAQAAAAAAAAAABACAP//AAAAAAAAABAGAP//AAAAAAAAABAGAAQAAAAAAAAAABA=")
+tile_map_data = PackedByteArray("AAALAP7/AQAAAAAAAAAMAP7/AgAAAAAAAAANAP7/BAAAAAAAAAAMAAEABgAAAAAAAAAJAAAAAwAAAAAAAAAJAP//AwAAAAAAAAAJAP7/AwAAAAAAAAANAAEAAwAAAAAAAAAOAAEAAwAAAAAAAAAOAP7/AwAAAAAAAAAFAP//BQAAAAAAAAABAP//BQAAAAAAAAABAAQABQAAAAAAAAAFAAQABQAAAAAAAAAAAAQAAAAAAAAAAAAAAP//AAAAAAAAAAAEAP//AAAAAAAAAAAEAAQAAAAAAAAAAAACAAQAAAAAAAAAABACAP//AAAAAAAAABAGAP//AAAAAAAAABAGAAQAAAAAAAAAABAOAP//BwAAAAAAAAA=")
 tile_set = SubResource("TileSet_kohy7")
 
 [node name="WallLayer" type="TileMapLayer" parent="."]
