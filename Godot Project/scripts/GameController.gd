@@ -1,9 +1,9 @@
 extends Node2D
 
 @export var tables: Array  # List of all table nodes
-@export var customer_scene: PackedScene  # Customer sprite scene to spawn
+@export var CustomerScene: PackedScene  # Customer sprite scene to spawn
 @export var spawn_interval: float = 5.0  # Interval to spawn customers
-@export var max_customers: int = 5  # Maximum number of customers in the game at once
+@export var max_customers: int = 4  # Maximum number of customers in the game at once
 var occupied_tables: Array = []  # List to track occupied tables
 var customers_spawned: int = 0  # Track the number of customers spawned
 
@@ -38,7 +38,7 @@ func spawn_customer():
 		customers_spawned += 1  # Increment the number of spawned customers
 
 		# Spawn the customer at this table
-		var customer = customer_scene.instantiate()
+		var customer = CustomerScene.instantiate()
 		customer.position = available_table.position  # Position at the table (or any spawn point)
 		add_child(customer)
 
