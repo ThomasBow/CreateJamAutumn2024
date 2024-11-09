@@ -1,26 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=5 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
 [ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
 [ext_resource type="PackedScene" uid="uid://bqfcmatsy614r" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
-[ext_resource type="PackedScene" uid="uid://cjdx3d1757ddk" path="res://scenes/Indoor/Utilities/Counter.tscn" id="4_e1fkp"]
-[ext_resource type="PackedScene" uid="uid://bl4y2sn1vg10a" path="res://scenes/Indoor/Table.tscn" id="5_thbyu"]
-[ext_resource type="Script" path="res://scripts/Table.gd" id="6_1m32h"]
-[ext_resource type="PackedScene" uid="uid://buerogyqjhxoj" path="res://scenes/Indoor/Chair.tscn" id="6_g24bx"]
-[ext_resource type="PackedScene" uid="uid://da1yahngksnnx" path="res://scenes/Indoor/Plate.tscn" id="7_onbn5"]
-[ext_resource type="PackedScene" uid="uid://c44nksploio7s" path="res://scenes/Indoor/Utilities/Chopper.tscn" id="8_vhijo"]
-[ext_resource type="PackedScene" uid="uid://beu27dubh6hi7" path="res://scenes/Indoor/Utilities/Sink.tscn" id="9_srsf2"]
-[ext_resource type="PackedScene" uid="uid://p8qtr8e1qdnq" path="res://scenes/Indoor/Utilities/Cooker.tscn" id="10_jor8v"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -488.0
-offset_top = -244.0
-offset_right = 793.0
-offset_bottom = 476.0
+offset_left = -372.0
+offset_top = -267.0
+offset_right = 909.0
+offset_bottom = 453.0
 texture = ExtResource("1_agcnu")
 
 [node name="TilemapLayer" parent="." instance=ExtResource("3_rafy7")]
@@ -34,36 +26,3 @@ zoom = Vector2(4.235, 4.235)
 position = Vector2(152, 68)
 speed = 80
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
-
-[node name="Counter" parent="." instance=ExtResource("4_e1fkp")]
-position = Vector2(174, -30)
-
-[node name="Counter2" parent="." instance=ExtResource("4_e1fkp")]
-position = Vector2(190, -30)
-
-[node name="Table" parent="." instance=ExtResource("5_thbyu")]
-position = Vector2(109, -30)
-script = ExtResource("6_1m32h")
-
-[node name="Chair" parent="Table" instance=ExtResource("6_g24bx")]
-position = Vector2(-16, 0)
-
-[node name="Chair2" parent="Table" instance=ExtResource("6_g24bx")]
-position = Vector2(17, 0)
-rotation = 3.14159
-scale = Vector2(1, -1)
-
-[node name="Plate" parent="." instance=ExtResource("7_onbn5")]
-position = Vector2(109, -30)
-
-[node name="Plate2" parent="." instance=ExtResource("7_onbn5")]
-position = Vector2(190, -30)
-
-[node name="Chopper" parent="." instance=ExtResource("8_vhijo")]
-position = Vector2(206, -30)
-
-[node name="Sink" parent="." instance=ExtResource("9_srsf2")]
-position = Vector2(222, -30)
-
-[node name="Cooker" parent="." instance=ExtResource("10_jor8v")]
-position = Vector2(238, -30)
