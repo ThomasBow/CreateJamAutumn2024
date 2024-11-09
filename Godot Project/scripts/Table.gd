@@ -1,6 +1,6 @@
 extends Node2D
 
-var is_occupied: bool = false  # Tracks if the table is occupied
+var is_occupied: bool = true  # Tracks if the table is occupied
 var customer: Node = null  # Reference to the customer at the table (if any)
 
 # Mark the table as occupied and assign a customer to it

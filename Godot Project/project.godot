@@ -25,6 +25,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Create Jam Autumn 2024"
 
+[global_group]
+
+tables=""
+
 [input]
 
 ui_left_second={
