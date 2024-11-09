@@ -39,13 +39,17 @@ position = Vector2(174, -30)
 position = Vector2(190, -30)
 
 [node name="Table" parent="." instance=ExtResource("5_thbyu")]
-position = Vector2(142, 2)
+position = Vector2(109, -30)
 
 [node name="Chair" parent="." instance=ExtResource("6_g24bx")]
-position = Vector2(126, 2)
+position = Vector2(93, -30)
+
+[node name="Chair2" parent="." instance=ExtResource("6_g24bx")]
+position = Vector2(126, -30)
+scale = Vector2(-1, 1)
 
 [node name="Plate" parent="." instance=ExtResource("7_onbn5")]
-position = Vector2(142, 2)
+position = Vector2(109, -30)
 
 [node name="Plate2" parent="." instance=ExtResource("7_onbn5")]
 position = Vector2(190, -30)
