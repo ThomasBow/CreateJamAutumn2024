@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=4 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
-[ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
+[ext_resource type="PackedScene" uid="uid://cayblsqcgyaqp" path="res://scenes/Player.tscn" id="2_4xm4e"]
+[ext_resource type="PackedScene" uid="uid://bqfcmatsy614r" path="res://scenes/TilemapLayer.tscn" id="3_62fjn"]
 
 [node name="Game" type="Node2D"]
 
@@ -10,5 +11,8 @@ offset_right = 1281.0
 offset_bottom = 720.0
 texture = ExtResource("1_agcnu")
 
-[node name="Player" parent="." instance=ExtResource("2_4xm4e")]
+[node name="Player" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("2_4xm4e")]
 position = Vector2(281, 147)
+tile_map_layer_parent_node = NodePath("../TilemapLayer")
+
+[node name="TilemapLayer" parent="." instance=ExtResource("3_62fjn")]
