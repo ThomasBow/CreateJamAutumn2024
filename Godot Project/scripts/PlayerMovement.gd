@@ -5,6 +5,7 @@ class_name PlayerMovement
 @export var speed: int = 300
 @export var tile_map_layer_parent_node: Node2D
 @export var buttons: Array = ["ui_left", "ui_right", "ui_up", "ui_down", "enter", "backspace"] 
+@export var highlightIDthing = 0
 var tile_map_layers: Array = []
 var _animated_sprite_2d: AnimatedSprite2D
 
@@ -174,12 +175,14 @@ func HighlightNeibhoringCellInWalkingDirection() -> void:
 			neighbor_coords.x -= 1  # Move left in the grid
 		Direction.RIGHT:
 			neighbor_coords.x += 1  # Move right in the grid
-
+	
 	if neighbor_coords != newestHighlightedTileCoords:
-		highlightingLayer.clear()
+		highlightingLayer.erase_cell(newestHighlightedTileCoords)
 		
-		var sourceId: int = 0
+		var sourceId: int = highlightIDthing
 		var atlasCoords: Vector2i = Vector2i(0,0)
 		
 		highlightingLayer.set_cell(neighbor_coords, sourceId, atlasCoords)
+		
+		newestHighlightedTileCoords = neighbor_coords
 	

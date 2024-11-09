@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://d3hsrrlgjwijb"]
+[gd_scene load_steps=29 format=4 uid="uid://d3hsrrlgjwijb"]
 
 [ext_resource type="Texture2D" uid="uid://c5xipexx0t7q" path="res://images/chair.png" id="2_q4sq1"]
 [ext_resource type="Texture2D" uid="uid://tpf2ditld3fg" path="res://images/tilemapFixedV3.png" id="2_qy7o0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://du7rlji0x2m4y" path="res://images/freezer.png" id="8_nlunc"]
 [ext_resource type="Texture2D" uid="uid://bjvduonv71mcj" path="res://images/Fryer.png" id="9_56v40"]
 [ext_resource type="Texture2D" uid="uid://bgwlgc43jyn1s" path="res://images/highlight sheet.png" id="9_cultv"]
+[ext_resource type="Texture2D" uid="uid://dg47l5v6423xs" path="res://images/highlight 2.png" id="11_dra2p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oym6a"]
 texture = ExtResource("2_qy7o0")
@@ -539,8 +540,24 @@ texture = ExtResource("9_cultv")
 0:0/animation_frame_11/duration = 0.1
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fvny4"]
+texture = ExtResource("11_dra2p")
+0:0/0 = 0
+2:0/0 = 0
+4:0/0 = 0
+6:0/0 = 0
+8:0/0 = 0
+10:0/0 = 0
+12:0/0 = 0
+14:0/0 = 0
+16:0/0 = 0
+18:0/0 = 0
+20:0/0 = 0
+22:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_i5vl7"]
 sources/0 = SubResource("TileSetAtlasSource_2mqpa")
+sources/1 = SubResource("TileSetAtlasSource_fvny4")
 
 [node name="TilemapLayer" type="Node2D"]
 

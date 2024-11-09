@@ -11,6 +11,7 @@ motion_mode = 1
 script = ExtResource("1_f21wi")
 speed = 100
 buttons = ["ui_left_second", "ui_right_second", "ui_up_second", "ui_down_second", "enter_second", "backspace_second"]
+highlightIDthing = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 1.5)
