@@ -11,7 +11,7 @@ public partial class PlayerMovement : CharacterBody2D
 	
 	public void CalculateMovement() {
 		// Get direction
-		Vector2 directionVector = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Vector2 directionVector += Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		// Calculate movement vector
 		Velocity = directionVector * speed;
 	}
