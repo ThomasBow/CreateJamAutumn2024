@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://38xpuwcalggd"
-path="res://.godot/imported/ingredient_arm.png-f96b6d43d5e760bdaea7dcc03242c60b.ctex"
+uid="uid://du7rlji0x2m4y"
+path="res://.godot/imported/freezer.png-3450c2cf20520c109abeac74c0c91c21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/ingredient_arm.png"
-dest_files=["res://.godot/imported/ingredient_arm.png-f96b6d43d5e760bdaea7dcc03242c60b.ctex"]
+source_file="res://images/freezer.png"
+dest_files=["res://.godot/imported/freezer.png-3450c2cf20520c109abeac74c0c91c21.ctex"]
 
 [params]
 

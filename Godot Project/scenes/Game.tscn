@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=13 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c44nksploio7s" path="res://scenes/Indoor/Utilities/Chopper.tscn" id="8_vhijo"]
 [ext_resource type="PackedScene" uid="uid://beu27dubh6hi7" path="res://scenes/Indoor/Utilities/Sink.tscn" id="9_srsf2"]
 [ext_resource type="PackedScene" uid="uid://p8qtr8e1qdnq" path="res://scenes/Indoor/Utilities/Cooker.tscn" id="10_jor8v"]
+[ext_resource type="PackedScene" uid="uid://b0yiq2iioleje" path="res://scenes/Indoor/Utilities/Freezer.tscn" id="12_j4bof"]
 
 [node name="Game" type="Node2D"]
 
@@ -65,3 +66,6 @@ position = Vector2(222, -30)
 
 [node name="Cooker" parent="." instance=ExtResource("10_jor8v")]
 position = Vector2(238, -30)
+
+[node name="Freezer" parent="." instance=ExtResource("12_j4bof")]
+position = Vector2(206, 18)
