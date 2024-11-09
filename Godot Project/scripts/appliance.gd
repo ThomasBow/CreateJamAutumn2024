@@ -2,7 +2,7 @@ extends Sprite2D
 
 class_name Appliance
 
-enum CookingType {FRY, DEEP_FRY, CHOP}
+enum CookingType {FRY, DEEP_FRY, CHOP, PLATE}
 
 @export var cooking_type: CookingType;
 @export var error_sound: AudioStreamPlayer;
