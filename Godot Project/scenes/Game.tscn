@@ -4,12 +4,8 @@
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
 [ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
 [ext_resource type="PackedScene" uid="uid://d3hsrrlgjwijb" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cw8ktebb5337u" path="res://images/table.png" id="5_iikqb"]
 [ext_resource type="Script" path="res://scripts/Table.gd" id="6_5cx8w"]
-=======
->>>>>>> fcdba40 (fs)
-
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
 
