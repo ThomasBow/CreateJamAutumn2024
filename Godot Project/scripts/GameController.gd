@@ -1,17 +1,26 @@
 extends Node2D
 
-@export var tables: Array  # List of all table nodes
 @export var customer_scene: PackedScene  # Customer sprite scene to spawn
 @export var max_customers: int = 4  # Maximum number of customers at once
+@export var spawn_interval: float = 5.0  # Time interval between customer spawns
 var occupied_tables: Array = []  # List to track occupied tables
+var time_since_last_spawn: float = 0.0  # Timer to track the spawn interval
+var tables: Array = [$Table1,$Table2,$Table3,$Table4]  # Declare tables array to hold references
 
 func _ready():
-	# Initialize the customer spawning process
+	# Print the number of tables
+	print("Number of tables in the array: ", tables.size())
+
+	# Start processing the customer spawn logic
 	set_process(true)
 
 func _process(delta):
-	# If there are fewer customers than the maximum, try to spawn new ones
-	if occupied_tables.size() < max_customers:
+	# Increment the time since the last spawn attempt
+	time_since_last_spawn += delta
+
+	# If the time since the last spawn exceeds the interval, try to spawn a customer
+	if time_since_last_spawn >= spawn_interval:
+		time_since_last_spawn = 0.0  # Reset the timer
 		spawn_customer()
 
 func spawn_customer():
@@ -43,3 +52,8 @@ func spawn_customer():
 
 		# Animate the customer's movement to the target position (chair)
 		tween.tween_property(customer, "position", spawn_position, 1.5, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+
+		# Print out a message indicating a customer has been spawned
+		print("Customer spawned at table ", available_table.name, " on side ", side)
+	else:
+		print("No available tables to spawn a new customer.")

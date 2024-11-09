@@ -36,7 +36,7 @@ position = Vector2(152, 68)
 speed = 80
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
 
-[node name="Table1" type="Sprite2D" parent="."]
+[node name="Table1" type="Sprite2D" parent="." groups=["tables"]]
 position = Vector2(30, -14)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
@@ -52,7 +52,7 @@ texture = ExtResource("7_d36ax")
 flip_h = true
 script = ExtResource("8_5ccpk")
 
-[node name="Table2" type="Sprite2D" parent="."]
+[node name="Table2" type="Sprite2D" parent="." groups=["tables"]]
 position = Vector2(94, -14)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
@@ -68,7 +68,7 @@ texture = ExtResource("7_d36ax")
 flip_h = true
 script = ExtResource("8_5ccpk")
 
-[node name="Table3" type="Sprite2D" parent="."]
+[node name="Table3" type="Sprite2D" parent="." groups=["tables"]]
 position = Vector2(30, 66)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
@@ -84,7 +84,7 @@ texture = ExtResource("7_d36ax")
 flip_h = true
 script = ExtResource("8_5ccpk")
 
-[node name="Table4" type="Sprite2D" parent="."]
+[node name="Table4" type="Sprite2D" parent="." groups=["tables"]]
 position = Vector2(94, 66)
 texture = ExtResource("5_iikqb")
 script = ExtResource("6_5cx8w")
