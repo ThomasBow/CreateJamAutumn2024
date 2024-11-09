@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 	if self.in_use:
 		self.time += delta;
 		
-		if self.time >= self.item.get_process_time():
+		if self.time >= self.item.process_time:
 			item.cook();
 			
 			
