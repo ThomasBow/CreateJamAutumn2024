@@ -19,7 +19,7 @@ func _process(delta):
 func move_to_target():
 	if position.distance_to(target_position) > 5.0:  # Check if close enough
 		var direction = (target_position - position).normalized()
-		move_and_slide(direction * movement_speed)
+		move_and_slide()
 	else:
 		# Once close enough, sit down at the table
 		sit_at_table()
