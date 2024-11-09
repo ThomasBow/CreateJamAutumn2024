@@ -2,11 +2,22 @@ extends Node2D
 
 class_name Item
 
-# Called when the node enters the scene tree for the first time.
+@export var itemName: String = "Undefined"
+@export var itemUUID: String = "Undefined"
+@export var process_time: float = 5
+@export var uncookedTexture: Texture
+@export var cookedTexture: Texture
+
+@export var sprite: Sprite2D
+
+var cooked: bool = false
+
 func _ready() -> void:
-	pass # Replace with function body.
+	sprite.texture = uncookedTexture
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+
+func cook() -> void:
+	sprite.texture = cookedTexture
+	cooked = true
