@@ -6,6 +6,9 @@ class_name PlayerMovement
 @export var tile_map_layer_parent_node: Node2D
 @export var buttons: Array = ["ui_left", "ui_right", "ui_up", "ui_down", "enter", "backspace"] 
 @export var highlightIDthing = 0
+
+@export var carriedSprite: Sprite2D
+
 var tile_map_layers: Array = []
 var _animated_sprite_2d: AnimatedSprite2D
 

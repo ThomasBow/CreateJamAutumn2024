@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkytxbmh36oh0"]
+[gd_scene load_steps=5 format=3 uid="uid://bkytxbmh36oh0"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_a6ik1"]
 [ext_resource type="SpriteFrames" uid="uid://b5710rbmfl6uc" path="res://sprites/ghost_spriteframes.tres" id="2_5p5ly"]
+[ext_resource type="Texture2D" uid="uid://dc06fqpsg0j1l" path="res://images/GRYYDE.png" id="2_qa7w5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da5ni"]
 size = Vector2(10, 9)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("carriedSprite")]
 motion_mode = 1
 script = ExtResource("1_a6ik1")
 speed = 400
+carriedSprite = NodePath("CarriedSprite")
+
+[node name="CarriedSprite" type="Sprite2D" parent="."]
+z_index = 11
+position = Vector2(-2.84217e-14, -9)
+scale = Vector2(0.4375, 0.4375)
+texture = ExtResource("2_qa7w5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

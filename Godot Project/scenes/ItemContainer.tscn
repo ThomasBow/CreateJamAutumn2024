@@ -46,8 +46,6 @@ itemUUID = "plate"
 [node name="Sprite2D" parent="Plate Item" index="0"]
 texture = ExtResource("7_4sa5x")
 
-[node name="Item6" parent="." instance=ExtResource("2_wwkt7")]
-
 [editable path="Arm Item"]
 [editable path="Brain Item"]
 [editable path="Fingers Item"]
