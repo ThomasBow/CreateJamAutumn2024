@@ -1,4 +1,4 @@
-extends Node2D
+extends Sprite2D
 
 class_name Item
 
@@ -10,18 +10,16 @@ class_name Item
 
 @export var cookingType: Appliance.CookingType
 
-@export var sprite: Sprite2D
-
 var cooked: bool = false
 
 func _ready() -> void:
-	sprite.texture = uncookedTexture
+	self.texture = uncookedTexture
 
 
 
 
 func cook() -> void:
-	sprite.texture = cookedTexture
+	self.texture = cookedTexture
 	cooked = true
 
 
