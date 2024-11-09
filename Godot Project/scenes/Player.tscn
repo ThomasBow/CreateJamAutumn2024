@@ -1,14 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkytxbmh36oh0"]
+[gd_scene load_steps=4 format=3 uid="uid://bkytxbmh36oh0"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.cs" id="1_5s174"]
-[ext_resource type="Texture2D" uid="uid://daknqmja37w1k" path="res://sprites/ghost.png" id="1_81erl"]
+[ext_resource type="SpriteFrames" path="res://sprites/ghost_spriteframes.tres" id="2_43qdq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_da5ni"]
+size = Vector2(10, 9)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_5s174")
 speed = 400
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(449.5, 348.5)
-scale = Vector2(0.706074, 0.669884)
-texture = ExtResource("1_81erl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_da5ni")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_43qdq")
+autoplay = "default"
+frame_progress = 0.702688

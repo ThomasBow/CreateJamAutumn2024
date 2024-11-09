@@ -24,3 +24,7 @@ window/stretch/mode="canvas_items"
 [dotnet]
 
 project/assembly_name="Create Jam Autumn 2024"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

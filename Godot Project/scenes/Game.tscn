@@ -11,3 +11,4 @@ offset_bottom = 720.0
 texture = ExtResource("1_agcnu")
 
 [node name="Player" parent="." instance=ExtResource("2_4xm4e")]
+position = Vector2(281, 147)
