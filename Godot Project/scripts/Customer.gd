@@ -19,6 +19,7 @@ func _process(delta):
 func move_to_target():
 	if position.distance_to(target_position) > 5.0:  # Check if close enough
 		var direction = (target_position - position).normalized()
+		# Pass the direction and the floor normal (Vector2.UP) for move_and_slide
 		move_and_slide()
 	else:
 		# Once close enough, sit down at the table
