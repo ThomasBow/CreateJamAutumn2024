@@ -3,16 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
 [ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
-[ext_resource type="PackedScene" uid="uid://bqfcmatsy614r" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
+[ext_resource type="PackedScene" uid="uid://d3hsrrlgjwijb" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -372.0
-offset_top = -267.0
-offset_right = 909.0
-offset_bottom = 453.0
+offset_left = -275.0
+offset_top = -121.0
+offset_right = 1006.0
+offset_bottom = 599.0
 texture = ExtResource("1_agcnu")
 
 [node name="TilemapLayer" parent="." instance=ExtResource("3_rafy7")]
