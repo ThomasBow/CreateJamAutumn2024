@@ -19,7 +19,7 @@ func get_tile_map_layers() -> void:
 
 func calculate_movement() -> void:
 	# Get direction
-	var direction_vector: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
 	# Flip the sprite based on direction
 	if direction_vector.x < 0:
