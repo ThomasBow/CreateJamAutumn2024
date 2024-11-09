@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwxcrgupb2jd1"
-path="res://.godot/imported/stegepande.png-3497d1cc850447be4849b6f50443fd40.ctex"
+uid="uid://biv71jv6x4snb"
+path="res://.godot/imported/customer-emo.png-b7513b6b36f2407cafcf0238e0355794.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/stegepande.png"
-dest_files=["res://.godot/imported/stegepande.png-3497d1cc850447be4849b6f50443fd40.ctex"]
+source_file="res://sprites/customer-emo.png"
+dest_files=["res://.godot/imported/customer-emo.png-b7513b6b36f2407cafcf0238e0355794.ctex"]
 
 [params]
 

@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjfnoenunchfi"]
+
+[ext_resource type="Texture2D" uid="uid://dnxsxjifj27qv" path="res://images/title-screen-notitle.png" id="1_cgt7m"]
+[ext_resource type="Texture2D" uid="uid://cr5ecmol87ol1" path="res://images/title-screen-just-title.png" id="2_scy8i"]
+[ext_resource type="Script" path="res://scenes/title-text.gd" id="3_tru5y"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -256.0
+offset_right = 512.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_cgt7m")
+
+[node name="Title" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_scy8i")
+script = ExtResource("3_tru5y")
