@@ -9,7 +9,7 @@ enum CookingType {FRY, DEEP_FRY, CHOP, PLATE}
 
 var item: Item = null;
 
-var in_use: bool = true;
+var in_use: bool = false;
 var time: float;
 
 # Called when the node enters the scene tree for the first time.
