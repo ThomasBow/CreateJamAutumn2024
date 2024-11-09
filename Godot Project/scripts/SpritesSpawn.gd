@@ -1,38 +1,48 @@
 extends Node2D
 
-@export var top: Node2D  # Export individual nodes for each spawn point
-@export var bottom: Node2D
-@export var left: Node2D
-@export var right: Node2D
+@export var top: Node2D  # Export individual nodes for each spawn point (not used for spawning chairs)
+@export var bottom: Node2D  # Export individual nodes for each spawn point (not used for spawning chairs)
+@export var left: Node2D  # Position of the left chair
+@export var right: Node2D  # Position of the right chair
 
-@export var available_sides := ["right", "bottom"]  # Modify per table instance
-@export var customer_scene: PackedScene
+@export var available_sides := ["left", "right"]  # Only left and right chairs
+@export var customer_scene: PackedScene  # The customer sprite to spawn
 
 func _ready():
-	spawn_sprites()
+	# This will spawn customers and place them at left or right
+	spawn_customers()
 
-func spawn_sprites():
-	var first_side = true
-
-	# Iterate through available sides and spawn customers
+func spawn_customers():
+	# Iterate through available sides (left and right)
 	for side in available_sides:
 		var spawn_position: Vector2
 
-		# Check which side we are using
-		if side == "top" and top:
-			spawn_position = top.position  # Use the position property of the node
-		elif side == "bottom" and bottom:
-			spawn_position = bottom.position
-		elif side == "left" and left:
+		# Determine the spawn position based on which side we're using
+		if side == "left" and left:
 			spawn_position = left.position
 		elif side == "right" and right:
 			spawn_position = right.position
 		else:
 			continue
+		
+		# Spawn the customer sprite off-screen or at (-1, 1) initially
+		var customer = customer_scene.instantiate()
+		customer.position = Vector2(-1, 1)  # Starting position off-screen
 
-		# Spawn on the first side with 100% chance, then 50% for others
-		if first_side or randi() % 2 == 0:
-			var customer = customer_scene.instantiate()
-			customer.position = spawn_position
-			add_child(customer)
-			first_side = false
+		# Add the customer to the scene
+		add_child(customer)
+
+		# Move the customer to the correct chair position (left or right)
+		move_customer_to_position(customer, spawn_position)
+
+func move_customer_to_position(customer: Node2D, target_position: Vector2):
+	# Use a Tween for smooth movement to the target position (left or right)
+	var move_duration = 1.5  # Time it will take to move the customer to the chair position
+	var tween = customer.get_node("Tween")  # Look for a Tween node in the customer scene
+	if tween == null:
+		# If no tween exists, create and add one
+		tween = Tween.new()
+		customer.add_child(tween)
+
+	# Animate the movement of the customer to the target position (chair)
+	tween.tween_property(customer, "position", target_position, move_duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)

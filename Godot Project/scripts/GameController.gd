@@ -8,8 +8,16 @@ var occupied_tables: Array = []  # List to track occupied tables
 var customers_spawned: int = 0  # Track the number of customers spawned
 
 func _ready():
+	# Automatically populate tables array if it's empty
+	if tables.size() == 0:
+		tables = get_tree().get_nodes_in_group("table")  # Add tables in "table" group to array
+
+	# Debug output to confirm tables are found
+	print("Tables found: ", tables.size())
+
 	# Start the timer to spawn customers at intervals
 	set_process(true)
+
 
 # Called every frame (interval-based logic can be added here)
 func _process(delta):
