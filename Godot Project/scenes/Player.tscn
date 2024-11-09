@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cayblsqcgyaqp"]
+[gd_scene load_steps=4 format=3 uid="uid://bkytxbmh36oh0"]
 
 [ext_resource type="Script" path="res://scripts/PlayerMovement.gd" id="1_a6ik1"]
-[ext_resource type="SpriteFrames" uid="uid://b5710rbmfl6uc" path="res://sprites/ghost_spriteframes.tres" id="2_5p5ly"]
+[ext_resource type="SpriteFrames" uid="uid://ey5oepqlga6" path="res://sprites/ghost_spriteframes.tres" id="2_5p5ly"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_da5ni"]
 size = Vector2(10, 9)

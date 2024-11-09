@@ -7,7 +7,7 @@ public partial class AiCustomer : Node2D
 	private Vector2 targetPosition;
 	private Vector2 currentPosition;
 	private const float gridSize = 16f; // grid size now 16x16
-	private const float speed = 100f; // speed of an customer
+	private const float speed = 300f; // speed of an customer
 
 	private bool[,] grid; // initialize this based on your level setup
 
@@ -19,9 +19,16 @@ public partial class AiCustomer : Node2D
 
 		// define your grid, where true = occupied non movable space
 		grid = new bool[,] {
-			{ false, false, true },
-			{ false, true, false },
-			{ false, false, false }
+			{ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false },
+			{ false, true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, false, },
+			{ false, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false, },
+			{ false, true, true, false, false, false, false, true, true, true, false, true, true, true, true, true, false, },
+			{ false, true, true, true, true, true, false, true, true, true, false, true, true, true, true, true, false, },
+			{ false, false, false, false, false, false, false, false, false, false, false, true, true, false, false, true, false, },
+			{ false, true, true, true, true, true, true, true, true, true, true, true, true, false, true, true, false, },
+			{ false, true, true, true, true, true, false, true, true, true, true, true, true, false, true, true, false, },
+			{ false, true, true, true, true, true, false, true, true, true, true, true, true, false, true, true, false, },
+			{ false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false }
 		};
 	}
 
