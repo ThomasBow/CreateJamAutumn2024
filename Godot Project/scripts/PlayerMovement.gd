@@ -11,16 +11,27 @@ var _animated_sprite_2d: AnimatedSprite2D
 enum Direction { UP, DOWN, LEFT, RIGHT }
 var lastDirection: Direction = Direction.LEFT
 
+var newestNeighboringCells: Array = []
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_animated_sprite_2d = $AnimatedSprite2D
 	get_tile_map_layers()
+
+
+
 
 func get_tile_map_layers() -> void:
 	tile_map_layers = []
 	for child in tile_map_layer_parent_node.get_children():
 		if child is TileMapLayer:
 			tile_map_layers.append(child)
+
+
+
 
 # Function to get the tile(s) the player is currently standing on
 func get_current_tiles_from_position() -> Array:
@@ -34,13 +45,19 @@ func get_current_tiles_from_position() -> Array:
 			tileDatas.append(tileData)
 	return tileDatas
 
+
+
+
 # Function to get the tile from the given layer
 func get_current_tile_from_layer(playerPosition: Vector2, layer: TileMapLayer) -> TileData:
 	var tileCoords = layer.local_to_map(playerPosition)
 	var tileData = layer.get_cell_tile_data(tileCoords)
 	return tileData
 
-func get_neighboring_tile(player_position: Vector2, layer: TileMapLayer, direction: Direction) -> TileData:
+
+
+
+func GetNeighboringCellInWalkingDirection(player_position: Vector2, layer: TileMapLayer, direction: Direction) -> TileData:
 	var current_tile_coords = layer.local_to_map(player_position)
 	var neighbor_coords = current_tile_coords
 	
@@ -59,18 +76,14 @@ func get_neighboring_tile(player_position: Vector2, layer: TileMapLayer, directi
 	var tile_data = layer.get_cell_tile_data(neighbor_coords)
 	return tile_data
 
+
+
+
 func calculate_movement() -> void:
 	# Get direction
 	var direction_vector: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	
-	if direction_vector.x > 0:
-		lastDirection = Direction.RIGHT
-	elif direction_vector.x < 0:
-		lastDirection = Direction.LEFT
-	elif direction_vector.y > 0:
-		lastDirection = Direction.UP
-	else:
-		lastDirection = Direction.DOWN
+	SetDirection(direction_vector)
 	
 	# Flip the sprite based on direction
 	if direction_vector.x < 0:
@@ -81,21 +94,80 @@ func calculate_movement() -> void:
 	# Calculate movement vector
 	velocity = direction_vector * speed
 
+
+
+
+func SetDirection(directionVector: Vector2):
+	if directionVector.x > 0:
+		lastDirection = Direction.RIGHT
+	elif directionVector.x < 0:
+		lastDirection = Direction.LEFT
+	elif directionVector.y > 0:
+		lastDirection = Direction.UP
+	else:
+		lastDirection = Direction.DOWN
+
+
+
+
 func GetLayerWithName(layerName: String) -> TileMapLayer:
 	for layer in tile_map_layers:
+		print(layer.name)
 		if layer.name == layerName:
 			return layer 
 	return null
+
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	calculate_movement() # This function uses delta itself
 	move_and_slide()
 	
-	var highlightLayer = GetLayerWithName("HighlightLayer")
-	get_neighboring_tile(global_position, highlightLayer, lastDirection)
+	HighlightNeibhoringCellInWalkingDirection()
+	GetNeighboringCellsInWalkingDirection()
+	
 	var tileDatas = get_current_tiles_from_position()
 	print("----------------")
 	if tileDatas.size() > 0:
 		for tileData in tileDatas:
 			print(tileData.to_string())
+
+
+
+
+
+func GetNeighboringCellsInWalkingDirection() -> Array:
+	var neighboringCells: Array = []
+	for layer in tile_map_layers:
+		var cell: TileData = GetNeighboringCellInWalkingDirection(global_position, layer, lastDirection)
+		neighboringCells.append(cell)
+	
+	newestNeighboringCells = neighboringCells
+	return neighboringCells
+
+
+
+
+func HighlightNeibhoringCellInWalkingDirection() -> void:
+	var higlightingLayer: TileMapLayer = GetLayerWithName("HighlightLayer")
+	var tileCoords = higlightingLayer.local_to_map(global_position)
+	var neighbor_coords = tileCoords
+	
+	# Adjust the coordinates based on direction
+	match lastDirection:
+		Direction.UP:
+			neighbor_coords.y -= 1  # Move up in the grid
+		Direction.DOWN:
+			neighbor_coords.y += 1  # Move down in the grid
+		Direction.LEFT:
+			neighbor_coords.x -= 1  # Move left in the grid
+		Direction.RIGHT:
+			neighbor_coords.x += 1  # Move right in the grid
+
+	var sourceId: int = 0
+	var atlasCoords: Vector2i = Vector2i(0,0)
+
+	higlightingLayer.set_cell(neighbor_coords, sourceId, atlasCoords)
+	
