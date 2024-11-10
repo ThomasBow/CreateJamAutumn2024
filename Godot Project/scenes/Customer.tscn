@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ex2vhmkcp02"]
+
+[ext_resource type="Texture2D" uid="uid://vqasigwovqau" path="res://sprites/ingredient_brain.png" id="1_71qke"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca156"]
+
+[node name="customer_scene" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_71qke")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_ca156")

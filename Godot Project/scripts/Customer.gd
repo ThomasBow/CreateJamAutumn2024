@@ -17,13 +17,14 @@ func _process(delta):
 
 # Moves the customer to the target position (table seat)
 func move_to_target():
-	if position.distance_to(target_position) > 5.0:  # Check if close enough
-		var direction = (target_position - position).normalized()
-		# Pass the direction and the floor normal (Vector2.UP) for move_and_slide
-		move_and_slide()
-	else:
-		# Once close enough, sit down at the table
-		sit_at_table()
+	#if position.distance_to(target_position) > 5.0:  # Check if close enough
+		#var direction = (target_position - position).normalized()
+		## Pass the direction and the floor normal (Vector2.UP) for move_and_slide
+		#move_and_slide()
+	#else:
+		## Once close enough, sit down at the table
+		#sit_at_table()
+	sit_at_table()
 
 # Mark the customer as seated and stop movement
 func sit_at_table():
