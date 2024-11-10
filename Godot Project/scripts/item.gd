@@ -15,7 +15,19 @@ var cooked: bool = false
 func _ready() -> void:
 	self.texture = uncookedTexture
 
-
+static func create(
+		itemName: String, 
+		itemUUID: String, 
+		process_time: float, 
+		uncookedTexture: Texture, 
+		cookedTexture: Texture, 
+		cookingType: Appliance.CookingType) -> Item:
+	var item = Item.new();
+	item.itemName = itemName;
+	item.itemUUID = itemUUID;
+	item.process_time = process_time;
+	item.uncookedTexture = uncookedTexture;
+	return item;
 
 
 func cook() -> void:
