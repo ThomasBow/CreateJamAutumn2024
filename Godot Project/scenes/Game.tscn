@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b7l6rqsw11bo0" path="res://images/cooker.png" id="12_5ikc3"]
 [ext_resource type="Texture2D" uid="uid://bjvduonv71mcj" path="res://images/Fryer.png" id="13_r4bj6"]
 [ext_resource type="Texture2D" uid="uid://cnecx2fy374xt" path="res://images/counter.png" id="14_mtbib"]
-[ext_resource type="AudioStream" uid="uid://bw2ega6000e15" path="res://music/Create Game Jam halloween loop.wav" id="15_bajco"]
+[ext_resource type="AudioStream" uid="uid://cmfp3oyhqjkak" path="res://music/Create Game Jam halloween loop.wav" id="15_bajco"]
 [ext_resource type="Texture2D" uid="uid://du7rlji0x2m4y" path="res://images/freezer.png" id="15_qhr4j"]
 [ext_resource type="Script" path="res://scripts/freezer.gd" id="16_yemom"]
 
@@ -161,16 +161,14 @@ texture = ExtResource("14_mtbib")
 script = ExtResource("10_mptmv")
 cooking_type = 3
 
-<<<<<<< Updated upstream
+
 [node name="Freezer" type="Sprite2D" parent="."]
 position = Vector2(206, 18)
 texture = ExtResource("15_qhr4j")
 script = ExtResource("16_yemom")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-=======
-[node name="InGameMusic" type="AudioStreamPlayer" parent="."]
->>>>>>> Stashed changes
+
 stream = ExtResource("15_bajco")
 volume_db = -23.464
 autoplay = true
