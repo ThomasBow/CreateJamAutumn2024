@@ -161,11 +161,15 @@ texture = ExtResource("14_mtbib")
 script = ExtResource("10_mptmv")
 cooking_type = 3
 
+<<<<<<< Updated upstream
 [node name="Freezer" type="Sprite2D" parent="."]
 position = Vector2(206, 18)
 texture = ExtResource("15_qhr4j")
 script = ExtResource("16_yemom")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+=======
+[node name="InGameMusic" type="AudioStreamPlayer" parent="."]
+>>>>>>> Stashed changes
 stream = ExtResource("15_bajco")
 volume_db = -23.464
 autoplay = true
