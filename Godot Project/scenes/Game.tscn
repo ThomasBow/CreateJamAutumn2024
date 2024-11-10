@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://ce2mqm2b6lcuk"]
+[gd_scene load_steps=19 format=3 uid="uid://ce2mqm2b6lcuk"]
 
 [ext_resource type="Texture2D" uid="uid://bldutiyxs25wa" path="res://sprites/grass.png" id="1_agcnu"]
 [ext_resource type="Script" path="res://scripts/GameController.gd" id="1_nqb7e"]
 [ext_resource type="PackedScene" uid="uid://bkytxbmh36oh0" path="res://scenes/Player.tscn" id="2_4xm4e"]
+[ext_resource type="PackedScene" uid="uid://b8ex2vhmkcp02" path="res://scenes/Customer.tscn" id="2_rjqi1"]
 [ext_resource type="PackedScene" uid="uid://d3hsrrlgjwijb" path="res://scenes/TilemapLayer.tscn" id="3_rafy7"]
 [ext_resource type="Texture2D" uid="uid://cw8ktebb5337u" path="res://images/table.png" id="5_iikqb"]
 [ext_resource type="Script" path="res://scripts/Table.gd" id="6_5cx8w"]
@@ -20,6 +21,7 @@
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_nqb7e")
+customer_scene = ExtResource("2_rjqi1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -275.0
@@ -35,10 +37,13 @@ position = Vector2(6, -6)
 position = Vector2(119, 31)
 zoom = Vector2(4.235, 4.235)
 
-[node name="Player" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("2_4xm4e")]
+[node name="Ghost Player" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("2_4xm4e")]
 position = Vector2(152, 68)
 speed = 80
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
+
+[node name="CollisionShape2D" parent="Ghost Player" index="1"]
+disabled = true
 
 [node name="Table1" type="Sprite2D" parent="." groups=["tables"]]
 position = Vector2(30, -14)
@@ -104,7 +109,7 @@ texture = ExtResource("7_d36ax")
 flip_h = true
 script = ExtResource("8_5ccpk")
 
-[node name="SecondPlayer" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("7_4qwg5")]
+[node name="Ghoul Player" parent="." node_paths=PackedStringArray("tile_map_layer_parent_node") instance=ExtResource("7_4qwg5")]
 position = Vector2(78, 21)
 tile_map_layer_parent_node = NodePath("../TilemapLayer")
 
@@ -161,14 +166,14 @@ texture = ExtResource("14_mtbib")
 script = ExtResource("10_mptmv")
 cooking_type = 3
 
-
 [node name="Freezer" type="Sprite2D" parent="."]
 position = Vector2(206, 18)
 texture = ExtResource("15_qhr4j")
 script = ExtResource("16_yemom")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-
 stream = ExtResource("15_bajco")
 volume_db = -23.464
 autoplay = true
+
+[editable path="Ghost Player"]
